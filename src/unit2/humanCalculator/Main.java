@@ -7,7 +7,8 @@ public class Main {
         Thread t1 = new Thread(h1);
         t1.start();
         Thread.sleep(10000);
+        //t1.stop();
         t1.interrupt();
-        System.out.println(h1.solution());
+        System.out.println("Take the last operation");
     }
 }

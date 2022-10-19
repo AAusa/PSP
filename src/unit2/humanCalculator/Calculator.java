@@ -13,10 +13,9 @@ public class Calculator extends Thread {
     public void run() {
         Scanner sc = new Scanner(System.in);
         Random r = new Random();
-        try {
-            while(play) {
-                n1 = r.nextInt(0,100);
-                n2 = r.nextInt(0,100);
+            while(!Thread.interrupted()) {
+                n1 = r.nextInt(0,10);
+                n2 = r.nextInt(0,10);
                 solution = n1 + n2;
                 System.out.print(n1 + "+" + n2 + "= ");
                 tried = sc.nextInt();
@@ -29,13 +28,10 @@ public class Calculator extends Thread {
                 }
                 total++;
             }
-        } catch(Exception e)
-        {
-            System.out.println(solution());
-        }
+        System.out.println(solution());
     }
 
     public String solution() {
-        return "In 10 s. you guess " + correct + " of " + total;
+        return "\nIn 10 s. you guess " + correct + " of " + total;
     }
 }
