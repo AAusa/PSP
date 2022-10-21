@@ -10,5 +10,6 @@ public class Main {
         //t1.stop();
         t1.interrupt();
         System.out.println("Take the last operation");
+
     }
 }
