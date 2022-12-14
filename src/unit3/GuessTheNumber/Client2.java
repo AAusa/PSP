@@ -19,6 +19,7 @@ public class Client2 {
             System.out.println("Introduce a number:");
             message = sc.nextLine();
             output.println(message);
+            System.out.println("i have sent: "+message);
             System.out.println("The server answers: "+input.readLine());
         } catch (IOException e) {
             throw new RuntimeException(e);
