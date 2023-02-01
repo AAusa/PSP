@@ -10,12 +10,13 @@ public class Ex1 {
     public static void main(String[] args) {
         List<String> names = asList("John", "Jack", "Jacob");
         //names.forEach(n -> System.out.println("Hello "+n));
-        //names.stream().map(String::toUpperCase)
-               // .forEach(System.out::println);
+        names.stream().map(String::toUpperCase)
+                .forEach(System.out::println);
 
         names.stream()
                 .filter((s) -> s.startsWith("Ja"))
                 .forEach(System.out::println);
+
 
         List<Integer> list = asList(1, 2, 3, 4);
         list.stream()
@@ -27,13 +28,23 @@ public class Ex1 {
         OptionalDouble avg = list.stream()
                 .mapToDouble(x->x)
                 .average();
+        if (avg.isPresent())
+            System.out.println(avg.getAsDouble());
         OptionalInt max = list.stream()
                 .mapToInt(x->x)
                 .max();
-        OptionalInt min = list.stream()
+        if (max.isPresent())
+            System.out.println(max.getAsInt());
+        int min = list.stream()
                 .mapToInt(x->x)
-                .min();
-        System.out.println(sum+" "+avg+" "+max+" "+min);
+                .min()
+                .orElse(0);
+        System.out.println(min);
+
+        list.stream()
+                .mapToInt(x->x)
+                .min()
+                .ifPresent(x -> System.out.println(x));
 
 
 
