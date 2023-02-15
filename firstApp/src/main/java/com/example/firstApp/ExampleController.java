@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ExampleController {
 
-    @GetMapping("/hello")
-    public String hello(@RequestParam String name, @RequestParam int age) {
+    @GetMapping("/volunteer")
+    public String volunteer() {
         return "hello!";
     }
 
